@@ -6,5 +6,5 @@ General purpose container for development.
 To run the container, do the following:
 
 ```
-sudo docker run -it --name my-dev kcyeu/ubuntu-general
+sudo docker run -it --name my-dev kcyeu/ubuntu
 ```
