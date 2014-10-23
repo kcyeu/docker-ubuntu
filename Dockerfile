@@ -13,7 +13,8 @@ RUN apt-get -qq update && apt-get -qqy install \
     make \
     php5-cli \
     php5-xdebug \
-    php-pear
+    php-pear \
+    doxygen
 
 # phpunit
 RUN mkdir -p /usr/local/bin
