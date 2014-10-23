@@ -1,0 +1,1 @@
+{"name":"Docker-ubuntu","tagline":"Dockerized ubuntu for development","body":"# docker-ubuntu\r\n\r\nGeneral purpose container for development.\r\n\r\n## Usage\r\nTo run the container, do the following:\r\n\r\n```\r\nsudo docker run -it --name my-dev kcyeu/ubuntu\r\n```\r\n","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
