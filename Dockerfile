@@ -13,6 +13,7 @@ RUN apt-get -qq update && apt-get -qqy install \
     make \
     php5-cli \
     php5-xdebug \
+    php5-gd \
     php-pear \
     doxygen
 
