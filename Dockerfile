@@ -2,7 +2,7 @@ FROM ubuntu:14.04.1
 ENV DEBIAN_FRONTEND noninteractive
 MAINTAINER Kuo-Cheng Yeu <kmd@mikuru.tw>
 
-ADD sources.list /etc/apt/sources.list
+#ADD sources.list /etc/apt/sources.list
 
 # Silently install basic packages
 RUN apt-get -qq update && apt-get -qqy install \ 
