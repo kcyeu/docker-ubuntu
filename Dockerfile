@@ -16,6 +16,7 @@ RUN apt-get -qq update && apt-get -qqy install \
     php5-cli \
     php5-xdebug \
     php5-gd \
+    php-gettext \
     php-pear \
     doxygen
 
@@ -34,7 +35,6 @@ RUN pear install pdepend/PHP_Depend
 # phpmd
 RUN pear channel-discover pear.phpmd.org
 RUN pear install phpmd/PHP_PMD
-
 
 CMD ["bash"]
 
