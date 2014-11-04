@@ -36,5 +36,8 @@ RUN pear install pdepend/PHP_Depend
 RUN pear channel-discover pear.phpmd.org
 RUN pear install phpmd/PHP_PMD
 
+# locale-gen
+RUN locale-gen zh_TW.UTF-8 en_US.UTF-8
+
 CMD ["bash"]
 
