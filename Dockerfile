@@ -1,8 +1,7 @@
 FROM ubuntu:14.04.1
-ENV DEBIAN_FRONTEND noninteractive
 MAINTAINER Kuo-Cheng Yeu <kmd@mikuru.tw>
 
-#ADD sources.list /etc/apt/sources.list
+ENV DEBIAN_FRONTEND noninteractive
 
 # Silently install basic packages
 RUN apt-get -qq update && apt-get -qqy install \ 
@@ -10,6 +9,7 @@ RUN apt-get -qq update && apt-get -qqy install \
     unzip \ 
     git \ 
     subversion \ 
+    curl \
     wget \ 
     telnet \
     make \
@@ -20,8 +20,13 @@ RUN apt-get -qq update && apt-get -qqy install \
     php-pear \
     doxygen
 
-# phpunit
 RUN mkdir -p /usr/local/bin
+
+# composer
+ADD http://getcomposer.org/composer.phar /usr/local/bin/composer
+RUN chmod 755 /usr/local/bin/composer
+
+# phpunit
 ADD https://phar.phpunit.de/phpunit.phar /usr/local/bin/phpunit
 RUN chmod 755 /usr/local/bin/phpunit
 
