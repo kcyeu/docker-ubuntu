@@ -19,7 +19,8 @@ RUN apt-get -qq update && apt-get -qqy install \
     php5-gd \
     php-gettext \
     php-pear \
-    doxygen
+    doxygen \
+&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /usr/local/bin
 
