@@ -19,6 +19,7 @@ RUN apt-get -qq update && apt-get -qqy install \
     php5-gd \
     php-gettext \
     php-pear \
+    ruby-dev \
     doxygen \
 && rm -rf /var/lib/apt/lists/*
 
@@ -42,6 +43,9 @@ RUN pear install pdepend/PHP_Depend
 # phpmd
 RUN pear channel-discover pear.phpmd.org
 RUN pear install phpmd/PHP_PMD
+
+# fpm
+RUN gem install fpm
 
 # locale-gen
 RUN locale-gen zh_TW.UTF-8 en_US.UTF-8
