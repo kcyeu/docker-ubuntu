@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.1
+FROM ubuntu:14.04.2
 MAINTAINER Kuo-Cheng Yeu <kmd@mikuru.tw>
 
 ENV DEBIAN_FRONTEND noninteractive
