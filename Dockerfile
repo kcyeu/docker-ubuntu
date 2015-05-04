@@ -24,18 +24,14 @@ RUN apt-get -qq update && apt-get -qqy install \
 && rm -rf /var/lib/apt/lists/* \
 && mkdir -p /usr/local/bin
 
-# composer, phpunit via phar
+# add via phar
 ADD http://getcomposer.org/composer.phar /usr/local/bin/composer
 ADD https://phar.phpunit.de/phpunit.phar /usr/local/bin/phpunit
+ADD https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar /usr/local/bin/phpcs
+#ADD http://static.pdepend.org/php/latest/pdepend.phar /usr/local/bin/pdepend
+ADD http://static.phpmd.org/php/latest/phpmd.phar /usr/local/bin/phpmd
 
-RUN chmod 755 /usr/local/bin/composer /usr/local/bin/phpunit
-
-# phpcs, phpmd and dependencies via pear
-RUN pear channel-discover pear.pdepend.org \
-&&  pear channel-discover pear.phpmd.org
-
-RUN pear install PHP_CodeSniffer pdepend/PHP_Depend phpmd/PHP_PMD \
-&&  pear clear-cache
+RUN chmod +x /usr/local/bin/*
 
 # fpm
 RUN gem install fpm
