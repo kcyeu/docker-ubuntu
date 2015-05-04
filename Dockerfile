@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.2
+FROM ubuntu:trusty
 MAINTAINER Kuo-Cheng Yeu <kmd@mikuru.tw>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -21,9 +21,9 @@ RUN apt-get -qq update && apt-get -qqy install \
     php-pear \
     ruby-dev \
     doxygen \
-&& rm -rf /var/lib/apt/lists/*
-
-RUN mkdir -p /usr/local/bin
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/* \
+&& mkdir -p /usr/local/bin
 
 # composer
 ADD http://getcomposer.org/composer.phar /usr/local/bin/composer
