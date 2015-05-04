@@ -8,7 +8,6 @@ RUN apt-get -qq update && apt-get -qqy install \
     vim \ 
     unzip \ 
     git \ 
-    subversion \ 
     curl \
     wget \ 
     telnet \
@@ -25,24 +24,18 @@ RUN apt-get -qq update && apt-get -qqy install \
 && rm -rf /var/lib/apt/lists/* \
 && mkdir -p /usr/local/bin
 
-# composer
+# composer, phpunit via phar
 ADD http://getcomposer.org/composer.phar /usr/local/bin/composer
-RUN chmod 755 /usr/local/bin/composer
-
-# phpunit
 ADD https://phar.phpunit.de/phpunit.phar /usr/local/bin/phpunit
-RUN chmod 755 /usr/local/bin/phpunit
 
-# phpcs
-RUN pear install PHP_CodeSniffer
+RUN chmod 755 /usr/local/bin/composer /usr/local/bin/phpunit
 
-# pdepend, dependency of phpmd
-RUN pear channel-discover pear.pdepend.org
-RUN pear install pdepend/PHP_Depend
+# phpcs, phpmd and dependencies via pear
+RUN pear channel-discover pear.pdepend.org \
+&&  pear channel-discover pear.phpmd.org
 
-# phpmd
-RUN pear channel-discover pear.phpmd.org
-RUN pear install phpmd/PHP_PMD
+RUN pear install PHP_CodeSniffer pdepend/PHP_Depend phpmd/PHP_PMD \
+&&  pear clear-cache
 
 # fpm
 RUN gem install fpm
