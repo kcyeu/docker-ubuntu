@@ -30,6 +30,7 @@ ADD https://phar.phpunit.de/phpunit.phar /usr/local/bin/phpunit
 ADD https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar /usr/local/bin/phpcs
 #ADD http://static.pdepend.org/php/latest/pdepend.phar /usr/local/bin/pdepend
 ADD http://static.phpmd.org/php/latest/phpmd.phar /usr/local/bin/phpmd
+ADD http://codeception.com/codecept.phar /usr/local/bin/codecept
 
 RUN chmod +x /usr/local/bin/*
 
